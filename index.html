@@ -14,7 +14,7 @@ h4 	 {color: gray;}
 
 /* puts the div in middle of the screen
 div {
-    position:fixed;
+	position:fixed;
     top: 50%;
     left: 50%;
     width:30em;
@@ -30,7 +30,24 @@ div {
 }
 
 .font {
-	color: #4CAF50;
+	color: white;
+}
+
+.footer {
+  bottom: 0;
+  color: #707070;
+  height: 5em;
+  left: 0;
+  position: relative; //changed to relative from fixed also works if position is not there
+  font-size: small;
+  width:100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#div1 {
+    background-color: #D00000; 
 }
 </style>
 
@@ -52,45 +69,58 @@ div {
 		<center><h4>Updated : 31 March 2020, 23:36 GMT+5:30</h4><center>
 	<div>
 	
-	<div>
+	<div id="div1">
 		<!-- precautions -->
 		<center><h1><p class="font">Precautions</p></h1></center>
 		
 		<!-- precautions description -->
 		<center>
+		
 			<h2>
+			<p class="font">
 				<br>Wash your hands frequently</br>
+			</p>		
 			</h2>
 
-			<h4>	
+			<h4>
+			<p class="font">			
 				<br>Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.</br>
 				<br>Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</br>
+			</p>	
 			</h4>
 		</center>
 		
 		<center>
 			<h2>
+			<p class="font">
 				<br>Maintain social distancing</br>
+			</p>	
 			</h2>
 
 			<h4>	
+			<p class="font">
 				<br>Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.</br>
 				<br>Why? When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus.
 				If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.</br>
+			</p>	
 			</h4>
 		</center>	
 		
 		<center>
 			<h2>
+			<p class="font">
 				<br>Avoid touching eyes, nose and mouth</br>
+			</p>	
 			</h2>
 
 			<h4>	
+			<p class="font">
 				<br>Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, 
 				nose or mouth. From there, the virus can enter your body and can make you sick.</br>
+			</p>	
 			</h4>
 		</center>	
-	</div>	
+	</div>
 		
 </body>
 </head>

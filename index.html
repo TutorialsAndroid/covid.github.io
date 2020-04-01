@@ -4,6 +4,9 @@
 <title>Covid</title>
 
 <style>
+
+<style>
+
 /*sets the background color of the page */
 body {
 	background-color: white;
@@ -35,30 +38,71 @@ div {
 	color: white;
 }
 
+.logo {
+	text-align: center;
+	display: block;
+	margin:0 15px 15px 15px;
+}	
+
 #div1 {
 	position: absolute;
     left:0;
     background-color: #D00000; 
     width: 100%;
 }
+
+#div2 {
+	position: absolute;
+	top: 0;
+    left:0;
+    background-color: black; 
+    width: 100%;
+	text-align: center;
+}
+
+.header {
+	background-color: black;
+	text-align: center;
+}
+
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
 </style>
 
 <body>
-	<div>
+
+	<div style="padding-bottom:30px" id="div2">
+		<h1><p class="font">COVID-19</p></h1>
+		<a href="https://asjinfonews.blogspot.com/" target="_blank">See Latest News</a>
+		
+	</div>
+	
+	<div style="padding-top:190px">
 		<!-- covid logo -->
 		<center><img src="https://raw.githubusercontent.com/TutorialsAndroid/covid.github.io/master/assets/covid.png"
 		alt="covid logo" height="42" width="42"></center>
 		
 		<!-- Confirmed cases -->
 		<center><h1><p class="monospace">Confirmed Cases</p></h1></center>
-		<center><h3>783,360</h3></center>
+		<center><h3>823,626</h3></center>
 		
 		<!-- Total Deaths -->
 		<center><h1><p class="monospace">Total Deaths</p></h1></center>
-		<center><h3>37,203</h3></center>
+		<center><h3>40,598</h3></center>
 		
 		<!-- Updated time -->
-		<center><h4>Updated : 1 April 2020, 18:39 GMT+5:30</h4><center>
+		<center><h4>Updated : 1 April 2020, 20:03 GMT+5:30</h4><center>
 	<div>
 	
 	<div id="div1">

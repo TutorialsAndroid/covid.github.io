@@ -2,14 +2,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <title>Covid</title>
-
-<style>
-
+<!-- Added stylesheet to remove white spaces in div element TODO -- workaround for this issue -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 
 /*sets the background color of the page */
 body {
 	background-color: white;
+}
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+
+ul {
+  list-style-type: none;
+  width: 500px;
+}
+
+li img {
+  float: center;
+  margin: 0 15px 0 0;
+}
+ 
+li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+ 
+li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+li:hover {
+  background: #eee;
+  cursor: pointer;
 }
 
 /* sets the text color */
@@ -45,10 +86,12 @@ div {
 }	
 
 #div1 {
-	position: absolute;
+/*	position: absolute; */
     left:0;
     background-color: #D00000; 
     width: 100%;
+	float:left;
+	clear:none;
 }
 
 #div2 {
@@ -58,6 +101,13 @@ div {
     background-color: black; 
     width: 100%;
 	text-align: center;
+}
+
+#div3 {
+    left:0;
+	float:left;
+	clear:none;  
+    width: 100%;
 }
 
 .header {
@@ -88,7 +138,7 @@ a:hover, a:active {
 		
 	</div>
 	
-	<div style="padding-top:190px">
+	<div style="padding-top:220px">
 		<!-- covid logo -->
 		<center><img src="https://raw.githubusercontent.com/TutorialsAndroid/covid.github.io/master/assets/covid.png"
 		alt="covid logo" height="42" width="42"></center>
@@ -164,6 +214,53 @@ a:hover, a:active {
 			</h4>
 		</center>	
 	</div>
+<!--	
+	<div>
+  <ul>
+    <li>
+      <img src="A:\Projects\cvid\assets\us_flag.png" alt="covid logo" height="60" width="60"/>
+      <h3>USA</h3>
+      <p>Total Cases - 245,373</p>
+	  <p>Total Deaths - 6,095</p>
+    </li>
+      
+    <li>
+       <img src="A:\Projects\cvid\assets\it_flag.png" alt="covid logo" height="60" width="60"/>
+      <h3>Italy</h3>
+      <p>Total Cases - 115,242</p>
+	  <p>Total Deaths - 13,915</p>
+    </li>
+ 
+    <li>
+       <img src="A:\Projects\cvid\assets\sp_flag.png" alt="covid logo" height="60" width="60"/>
+      <h3>Spain</h3>
+      <p>Total Cases - 112,065</p>
+	  <p>Total Deaths - 10,348</p>
+    </li>
+ 
+    <li>
+      <img src="A:\Projects\cvid\assets\gr_flag.png" alt="covid logo" height="60" width="60"/>
+      <h3>Germany</h3>
+      <p>Total Cases - 84,794</p>
+	  <p>Total Deaths - 1,107</p>
+    </li>
+	
+	<li>
+      <img src="A:\Projects\cvid\assets\ch_flag.png" alt="covid logo" height="60" width="60"/>
+      <h3>China</h3>
+      <p>Total Cases - 81,620</p>
+	  <p>Total Deaths - 3,322</p>
+    </li>
+  </ul>
+</div>
+-->
+	<div id="div3" class="scrollmenu">
+		<a>USA [Total Deaths - 6,095]</a>
+		<a>Italy [Total Deaths - 13,915]</a>
+		<a>Spain [Total Deaths - 10,348]</a>
+		<a>Germany [Total Deaths - 1,107]</a>
+		<a>China [Total Deaths - 3,322]</a>
+	</div>	
 	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="/__/firebase/7.13.2/firebase-app.js"></script>

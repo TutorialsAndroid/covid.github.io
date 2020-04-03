@@ -11,48 +11,6 @@ body {
 	background-color: white;
 }
 
-div.scrollmenu {
-  background-color: #333;
-  overflow: auto;
-  white-space: nowrap;
-}
-
-div.scrollmenu a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-div.scrollmenu a:hover {
-  background-color: #777;
-}
-
-ul {
-  list-style-type: none;
-  width: 500px;
-}
-
-li img {
-  float: center;
-  margin: 0 15px 0 0;
-}
- 
-li p {
-  font: 200 12px/1.5 Georgia, Times New Roman, serif;
-}
- 
-li {
-  padding: 10px;
-  overflow: auto;
-}
- 
-li:hover {
-  background: #eee;
-  cursor: pointer;
-}
-
 /* sets the text color */
 h1   {color: red;}
 h3   {color: blue;}
@@ -104,10 +62,15 @@ div {
 }
 
 #div3 {
+	background-color: black;
     left:0;
 	float:left;
 	clear:none;  
     width: 100%;
+	padding-top:30px;
+	padding-bottom:30px;
+	color: white;
+	text-align: center;
 }
 
 .header {
@@ -132,6 +95,7 @@ a:hover, a:active {
 
 <body>
 
+	<!-- Header -->
 	<div style="padding-bottom:30px" id="div2">
 		<h1><p class="font">COVID-19</p></h1>
 		<a href="https://asjinfonews.blogspot.com/" target="_blank">See Latest News</a>
@@ -145,22 +109,35 @@ a:hover, a:active {
 		
 		<!-- Confirmed cases -->
 		<center><h1><p class="monospace">Confirmed Cases</p></h1></center>
-		<center><h3>900,306</h3></center>
+		<center><h3>932,166</h3></center>
 		
 		<!-- Total Deaths -->
 		<center><h1><p class="monospace">Total Deaths</p></h1></center>
-		<center><h3>45,692</h3></center>
+		<center><h3>46,764</h3></center>
 		
 		<!-- Countries, areas or territories with cases -->
 		<center><h1><p class="monospace">Countries, areas or territories with cases</p></h1></center>
 		<center><h3>206</h3></center>
 		
 		<!-- Updated time -->
-		<center><h4>Updated : 2 April 2020, 23:40 GMT+5:30</h4><center>
+		<center><h4>Updated : 3 April 2020, 14:22 GMT+5:30</h4><center>
 		
 		<!-- Data provider -->
 		<center><h4>Data Provided By who.int</h4><center>
 	<div>
+	
+	<!-- Top 5 Country -->
+	<div id="div3">
+		<ul style= "list-style-type: none; line-height:200%;">
+			<li style= "padding-bottom:30px;"><h1>Top 5 Country</h1></li>
+			<li>USA [Total Deaths - 6,095]</li>
+			<li>Spain [Total Deaths - 10,935]</li>
+			<li>Italy [Total Deaths - 13,915]</li>
+			<li>Germany [Total Deaths - 1,111]</li>
+			<li>China [Total Deaths - 3,322]</li>
+		</ul>
+	</div>
+	
 	
 	<div id="div1">
 		<!-- precautions -->
@@ -214,53 +191,6 @@ a:hover, a:active {
 			</h4>
 		</center>	
 	</div>
-<!--	
-	<div>
-  <ul>
-    <li>
-      <img src="A:\Projects\cvid\assets\us_flag.png" alt="covid logo" height="60" width="60"/>
-      <h3>USA</h3>
-      <p>Total Cases - 245,373</p>
-	  <p>Total Deaths - 6,095</p>
-    </li>
-      
-    <li>
-       <img src="A:\Projects\cvid\assets\it_flag.png" alt="covid logo" height="60" width="60"/>
-      <h3>Italy</h3>
-      <p>Total Cases - 115,242</p>
-	  <p>Total Deaths - 13,915</p>
-    </li>
- 
-    <li>
-       <img src="A:\Projects\cvid\assets\sp_flag.png" alt="covid logo" height="60" width="60"/>
-      <h3>Spain</h3>
-      <p>Total Cases - 112,065</p>
-	  <p>Total Deaths - 10,348</p>
-    </li>
- 
-    <li>
-      <img src="A:\Projects\cvid\assets\gr_flag.png" alt="covid logo" height="60" width="60"/>
-      <h3>Germany</h3>
-      <p>Total Cases - 84,794</p>
-	  <p>Total Deaths - 1,107</p>
-    </li>
-	
-	<li>
-      <img src="A:\Projects\cvid\assets\ch_flag.png" alt="covid logo" height="60" width="60"/>
-      <h3>China</h3>
-      <p>Total Cases - 81,620</p>
-	  <p>Total Deaths - 3,322</p>
-    </li>
-  </ul>
-</div>
--->
-	<div id="div3" class="scrollmenu">
-		<a>USA [Total Deaths - 6,095]</a>
-		<a>Italy [Total Deaths - 13,915]</a>
-		<a>Spain [Total Deaths - 10,348]</a>
-		<a>Germany [Total Deaths - 1,107]</a>
-		<a>China [Total Deaths - 3,322]</a>
-	</div>	
 	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="/__/firebase/7.13.2/firebase-app.js"></script>

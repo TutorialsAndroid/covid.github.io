@@ -1,7 +1,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <!-- RGraph Import -->
 <script>
 window.RGraph=window.RGraph||{isrgraph:true,isRGraph:true,rgraph:true};(function(win,doc,undefined)
@@ -778,15 +778,15 @@ a:hover, a:active {
 		
 		<!-- Confirmed cases -->
 		<center><h1><p class="monospace">Confirmed Cases</p></h1></center>
-		<center><h3>976,249</h3></center>
+		<center><h3 id = "total_cases"></h3></center>
 		
 		<!-- Total Deaths -->
 		<center><h1><p class="monospace">Total Deaths</p></h1></center>
-		<center><h3>50,489</h3></center>
+		<center><h3 id = "total_deaths"></h3></center>
 		
 		<!-- Countries, areas or territories with cases -->
 		<center><h1><p class="monospace">Countries, areas or territories with cases</p></h1></center>
-		<center><h3>207</h3></center>
+		<center><h3 id = "countries_with_cases"></h3></center>
 		
 		<!-- Updated time -->
 		<center><h4>Updated : 4 April 2020, 00:23 GMT+5:30</h4><center>
@@ -799,11 +799,11 @@ a:hover, a:active {
 	<div id="div3">
 		<ul style= "list-style-type: none; line-height:200%;">
 			<li style= "padding-bottom:30px;"><h1>Top 5 Country</h1></li>
-			<li>USA [Total Deaths - 7,403]</li>
-			<li>Italy [Total Deaths - 14,681]</li>
-			<li>Spain [Total Deaths - 11,198]</li>
-			<li>Germany [Total Deaths - 1,275]</li>
-			<li>France [Total Deaths - 6,507]</li>
+			<li id= "usa"></li>
+			<li id= "italy"></li>
+			<li id= "spain"></li>
+			<li id= "germany"></li>
+			<li id= "france"></li>
 		</ul>
 	</div>
 	
@@ -870,6 +870,7 @@ a:hover, a:active {
 	<div style="padding-bottom:30px" id="div4">
 		<h1><p class="font-footer">Site Developed And Managed By</p></h1>
 		<h2><p class="font-footer">Akshay Masram, Sushant Gandalwar, Jaydeep Patil</p></h2>
+		<a class="button" href="https://github.com/TutorialsAndroid/covid.github.io" target="_blank">OPEN SOURCED ON GITHUB</a>
 	</div>
 	
 	<!-- Script for meter showing deaths -->
@@ -936,17 +937,126 @@ a:hover, a:active {
 
 				gtag('config', 'UA-162760962-1');
 		</script>
-
 	
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="/__/firebase/7.13.2/firebase-app.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="/__/firebase/7.13.2/firebase-analytics.js"></script>
-
-	<!-- Initialize Firebase -->
-	<script src="/__/firebase/init.js"></script>
+	<script>
+		(function(){
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCHn-YKUq4ADvka67aJCCs51dfaQR8hkXU",
+				authDomain: "covid-19-web-app.firebaseapp.com",
+				databaseURL: "https://covid-19-web-app.firebaseio.com",
+				projectId: "covid-19-web-app",
+				storageBucket: "covid-19-web-app.appspot.com",
+				messagingSenderId: "840406494852",
+				appId: "1:840406494852:web:8630fb4428debb82b21cd1",
+				measurementId: "G-ZPTYVJK3MN"
+			};
+			firebase.initializeApp(config);
+   
+    /* Data Event Listeners Start */
+		//Data Object Change Listener
+		const total_cases_object = document.getElementById('total_cases');
+		const total_deaths_object = document.getElementById('total_deaths');
+		const countries_cases_object = document.getElementById('countries_with_cases');
+		
+		const usa_object = document.getElementById('usa');
+		const italy_object = document.getElementById('italy');
+		const spain_object = document.getElementById('spain');
+		const germany_object = document.getElementById('germany');
+		const france_object = document.getElementById('france');
+		
+		//Data References
+		const total_cases = firebase.database().ref().child('/database/total_cases');
+		const total_deaths = firebase.database().ref().child('/database/total_deaths');
+		const countries_with_cases = firebase.database().ref().child('/database/countries_with_cases');
+		
+		const usa = firebase.database().ref().child('/database/country/usa');
+		const italy = firebase.database().ref().child('/database/country/italy');
+		const spain = firebase.database().ref().child('/database/country/spain');
+		const germany = firebase.database().ref().child('/database/country/germany');
+		const france = firebase.database().ref().child('/database/country/france');
+		
+ 
+		<!-- Total Cases Fetch -->
+		total_cases.on('value', snap => {
+			console.log(snap.val()); 
+			total_cases_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Total Deaths Fetch -->
+		total_deaths.on('value', snap => {
+			console.log(snap.val()); 
+			total_deaths_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Total Countries With Affected Fetch -->
+		countries_with_cases.on('value', snap => {
+			console.log(snap.val()); 
+			countries_cases_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Here we fetch data for top5 country -->
+		usa.on('value', snap => {
+			console.log(snap.val()); 
+			usa_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		italy.on('value', snap => {
+			console.log(snap.val()); 
+			italy_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		spain.on('value', snap => {
+			console.log(snap.val()); 
+			spain_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		germany.on('value', snap => {
+			console.log(snap.val()); 
+			germany_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		france.on('value', snap => {
+			console.log(snap.val()); 
+			france_object.innerText = JSON.stringify(snap.val(), null, 3);
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		
+		/* Stop Fetching Database */
+}());
+ </script>
 </body>
 </head>
 </html>	

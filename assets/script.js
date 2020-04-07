@@ -1,3 +1,5 @@
+<!-- script statements, which may include CDATA sections -->
+<!ELEMENT script (#PCDATA)>
 (function(){
 			// Initialize Firebase
 			var config = {

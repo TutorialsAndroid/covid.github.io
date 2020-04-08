@@ -1,7 +1,8 @@
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
 <!-- RGraph Import -->
 <script>
 window.RGraph=window.RGraph||{isrgraph:true,isRGraph:true,rgraph:true};(function(win,doc,undefined)
@@ -651,248 +652,349 @@ iterator();return this;};RGraph.register(this);RGraph.parseObjectStyleConfig(thi
 </script>
 
 <title>Covid</title>
-<!-- Added stylesheet to remove white spaces in div element TODO -- workaround for this issue -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <style>
 
-/*sets the background color of the page */
 body {
-	background-color: white;
+	 margin: 0; /* set margin: 0 this will help to remove side spaces from page */
 }
 
-/* sets the text color */
-h1   {color: red;}
-h3   {color: blue;}
-h4 	 {color: gray;}
+/* Header Style */
 
-/* puts the div in middle of the screen
-div {
-	position:fixed;
-    top: 50%;
-    left: 50%;
-    width:30em;
-    height:18em;
-    margin-top: -9em; /*set to a negative number 1/2 of your height*/
-    margin-left: -15em; /*set to a negative number 1/2 of your width*/
-}
-*/
-
-/* sets the font family for text */
-.monospace {
-  font-family: monospace;
-}
-
-.font {
-	color: white;
-}
-
-.font-footer {
-	font-size: 20px;
-}
-
-.logo {
-	text-align: center;
-	display: block;
-	margin:0 15px 15px 15px;
-}	
-
-/*used in precautions*/
-#div1 {
-/*	position: absolute; */
-    left:0;
-    background-color: #D00000; 
-    width: 100%;
-	float:left;
-	clear:none;
-}
-
-/*used in header*/
-#div2 {
+.header {
 	position: absolute;
 	top: 0;
     left:0;
     background-color: black; 
     width: 100%;
 	text-align: center;
+	padding-bottom:30px
+}
+.header h1 {
+	color: white;
+}
+.header a:link, a:visited {
+	background-color: #f44336;
+	color: white;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+.header a:hover, a:active {
+	background-color: red;
 }
 
-/*used in top5 country*/
-#div3 {
+/* ./End Header Style */
+
+.stat {
+	padding-top:190px;
+	padding-bottom:20px;
+	font-family: monospace;
+}
+.stat h1 {
+	color: indigo;
+}	
+.stat h3 {
+	font-size:20px;
+	color: darkred;
+}
+
+.country {
+	text-align: center;
+}
+.country h1 {
+	color: 	crimson;
+	font-family: Impact, fantasy;
+}	
+.country h3 {
+	color: indianred;
+}	
+
+.deathMeter {
+	padding-top:50px;
+	padding-bottom:50px;
+	float: center; 
+	text-align: center
+}
+.deathMeter h1 {
+	font-size:40px;
+	color: maroon;
+}
+.deathMeter h3 {
+	color: brown;
+}	
+
+.precautions {
+	background-color: firebrick;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+.precautions h1 {
+	font-family: Lucidatypewriter, monospace;
+}
+.precautions h4 {
+	font-family: Helvetica Narrow, sans-serif;
+}
+
+.footer {
 	background-color: black;
-    left:0;
-	float:left;
-	clear:none;  
-    width: 100%;
 	padding-top:30px;
 	padding-bottom:30px;
+}
+.footer h3 {
 	color: white;
-	text-align: center;
 }
-
-/*used in footer*/
-#div4 {
-	background-color: black;
-    left:0;
-	float:left;
-	clear:none;  
-    width: 100%;
-	padding-top:30px;
-	padding-bottom:30px;
-	color: white;
-	text-align: center;
-}
-
-.header {
-	background-color: black;
-	text-align: center;
-}
-
-a:link, a:visited {
-  background-color: #f44336;
+.footer a:link, a:visited {
   color: white;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-weight: bold;
 }
-
-a:hover, a:active {
-  background-color: red;
+.footer a:hover, a:active {
+  background-color: deeppink;
 }
-
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+a+a {
+  margin-left: 10px;
+  margin-top: 10px;
+}	
 
 </style>
 
 <body>
 
 	<!-- Header -->
-	<div style="padding-bottom:30px" id="div2">
-		<h1><p class="font">COVID-19</p></h1>
+	<div class= "header">
+		<h1>COVID-19</h1>
 		<a href="https://asjinfonews.blogspot.com/" target="_blank">See Latest News</a>
 		
 	</div>
 	
-	<div style="padding-top:220px">
-		<!-- covid logo -->
-		<center><img src="https://raw.githubusercontent.com/TutorialsAndroid/covid.github.io/master/assets/covid.png"
-		alt="covid logo" height="42" width="42"></center>
+	<!-- Stat Report -->
+	<div class= "stat">
 		
 		<!-- Confirmed cases -->
-		<center><h1><p class="monospace">Confirmed Cases</p></h1></center>
+		<center><h1>Confirmed Cases</h1></center>
 		<center><h3 id = "total_cases"></h3></center>
 		
 		<!-- Total Deaths -->
-		<center><h1><p class="monospace">Total Deaths</p></h1></center>
+		<center><h1>Total Deaths</h1></center>
 		<center><h3 id = "total_deaths"></h3></center>
 		
 		<!-- Countries, areas or territories with cases -->
-		<center><h1><p class="monospace">Countries, areas or territories with cases</p></h1></center>
+		<center><h1>Countries, areas or territories with cases</h1></center>
 		<center><h3 id = "countries_with_cases"></h3></center>
 		
 		<!-- Updated time -->
-		<center><h4>Updated : 5 April 2020, 12:54 GMT+5:30</h4><center>
+		<center><h4 id= "timeStamp"></h4><center>
 		
 		<!-- Data provider -->
-		<center><h4>Data Provided By who.int</h4><center>
-	<div>
-	
-	<!-- Top 5 Country -->
-	<div id="div3">
-		<ul style= "list-style-type: none; line-height:200%;">
-			<li style= "padding-bottom:30px;"><h1>Top 5 Country</h1></li>
-			<li id= "usa"></li>
-			<li id= "spain"></li>
-			<li id= "italy"></li>
-			<li id= "germany"></li>
-			<li id= "france"></li>
-		</ul>
+		<center><h4>Data Provided By WHO</h4><center>
 	</div>
 	
+	<!-- Here we load top 5 country -->
+	<div class="country">
+		<h1>TOP 5 TRENDING COUNTRY LIST</h1>
+		<h3 id="country1"></h3>
+		<h3 id="country2"></h3>
+		<h3 id="country3"></h3>
+		<h3 id="country4"></h3>
+		<h3 id="country5"></h3>
+	</div>	
+	
 	<!-- Meter of death -->
-	<div style="float: center; text-align: center">
+	<div class="deathMeter">
 		<h1>Death Meter</h1>
+		<h3>If corona virus cases increases then this meter will get increase and if cases get decreases then this meter will also decrease.<br>
+		So please pray for this world so that this meter will not increase.</br></h3>
 		<canvas id="cvs" width="270" height="200">[No canvas support]</canvas><br/>
 	</div>
 	
-	<div>
-		<h2>HELP FIGHT CORONAVIRUS</h2>
-		<h4>We are all affected by the growing COVID-19 pandemic. It's an unprecedented health challenge and we know people and organizations everywhere want to help. The World Health Organization is leading and coordinating the global effort, supporting countries to prevent, detect, and respond to the pandemic.
-
-The greatest need right now is to help ensure all countries are prepared, especially those with the weakest health systems. Donations support WHO’s work to track and understand the spread of the virus; to ensure patients get the care they need and frontline workers get essential supplies and information; and to accelerate efforts to develop vaccines, tests, and treatments.</h4>
-		<button class="button" onclick="location.href='https://covid19responsefund.org/'">DONATE TO WHO</button>
-	</div>	
-
-	<div id="div1">
+	<div class="precautions">
 		<!-- precautions -->
 		<center><h1><p class="font">Precautions</p></h1></center>
 		
 		<!-- precautions description -->
 		<center>
 		
-			<h2>
-			<p class="font">
-				<br>Wash your hands frequently</br>
-			</p>		
-			</h2>
+			<h2>Wash your hands frequently</h2>
 
-			<h4>
-			<p class="font">			
+			<h4>			
 				<br>Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.</br>
 				<br>Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</br>
-			</p>	
+				
 			</h4>
 		</center>
 		
 		<center>
 			<h2>
-			<p class="font">
+			
 				<br>Maintain social distancing</br>
-			</p>	
+				
 			</h2>
 
 			<h4>	
-			<p class="font">
+			
 				<br>Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.</br>
 				<br>Why? When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus.
 				If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.</br>
-			</p>	
+				
 			</h4>
 		</center>	
 		
 		<center>
 			<h2>
-			<p class="font">
+		
 				<br>Avoid touching eyes, nose and mouth</br>
-			</p>	
+				
 			</h2>
 
 			<h4>	
-			<p class="font">
+			
 				<br>Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, 
 				nose or mouth. From there, the virus can enter your body and can make you sick.</br>
-			</p>	
+				
 			</h4>
 		</center>	
 	</div>
 	
 	<!-- Footer -->
-	<div style="padding-bottom:30px" id="div4">
-		<h1><p class="font-footer">Site Developed And Managed By</p></h1>
-		<h2><p class="font-footer">Akshay Masram, Sushant Gandalwar, Jaydeep Patil</p></h2>
-		<a class="button" href="https://github.com/TutorialsAndroid/covid.github.io" target="_blank">OPEN SOURCED ON GITHUB</a>
-	</div>
+	<div class="footer">
+		<center><h3>Site Developed And Managed By<h3></center>
+		<center><h3>Akshay Masram , Sushant Gandalwar , Jaydeep Patil</h3></center>
+		<center>
+			<!-- Github Button -->
+			<a style="background-color: darkslategray;"
+			href="https://github.com/TutorialsAndroid/covid.github.io" 
+			target="_blank">GET SITE CODE ON GITHUB</a>
+			
+			<h4>Copyright © 2020 asm.life</h4>
+		</center>
+	<div>
+	
+	<!-- Here All Script TAG will be added -->
+	<!-- Firebase Database Initialize -->
+	<script>
+		(function(){
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyCHn-YKUq4ADvka67aJCCs51dfaQR8hkXU",
+				authDomain: "covid-19-web-app.firebaseapp.com",
+				databaseURL: "https://covid-19-web-app.firebaseio.com",
+				projectId: "covid-19-web-app",
+				storageBucket: "covid-19-web-app.appspot.com",
+				messagingSenderId: "840406494852",
+				appId: "1:840406494852:web:8630fb4428debb82b21cd1",
+				measurementId: "G-ZPTYVJK3MN"
+			};
+			firebase.initializeApp(config);
+   
+		/* Data Event Listeners Start */
+		
+		//Data References Of Stat
+		const total_cases = firebase.database().ref().child('/database/total_cases');
+		const total_deaths = firebase.database().ref().child('/database/total_deaths');
+		const countries_with_cases = firebase.database().ref().child('/database/countries_with_cases');
+		const timeStamp = firebase.database().ref().child('/database/timeStamp');
+		
+		//Data References Of Top5 Country
+		const country1 = firebase.database().ref().child('/database/country/country1');
+		const country2 = firebase.database().ref().child('/database/country/country2');
+		const country3 = firebase.database().ref().child('/database/country/country3');
+		const country4 = firebase.database().ref().child('/database/country/country4');
+		const country5 = firebase.database().ref().child('/database/country/country5');
+ 
+		<!-- Total Cases Fetch -->
+		total_cases.on('value', snap => {
+			console.log(snap.val());   
+			document.getElementById("total_cases").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Total Deaths Fetch -->
+		total_deaths.on('value', snap => {
+			console.log(snap.val());
+			document.getElementById("total_deaths").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Total Countries With Affected Fetch -->
+		countries_with_cases.on('value', snap => {
+			console.log(snap.val());
+			document.getElementById("countries_with_cases").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!--TimeStamp -->
+		timeStamp.on('value', snap => {
+			console.log(snap.val());
+			document.getElementById("timeStamp").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		<!-- Here we fetch data for top5 country -->
+		country1.on('value', snap => {
+			console.log(snap.val()); 
+			document.getElementById("country1").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		country2.on('value', snap => {
+			console.log(snap.val()); 
+			document.getElementById("country2").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		country3.on('value', snap => {
+			console.log(snap.val()); 
+			document.getElementById("country3").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		country4.on('value', snap => {
+			console.log(snap.val()); 
+			document.getElementById("country4").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		
+		country5.on('value', snap => {
+			console.log(snap.val()); 
+			document.getElementById("country5").innerHTML = snap.val();
+		}, function(error) {
+		
+		// The fetch failed.
+		console.error(error);
+		});
+		/* Stop Fetching Database */
+}());
+	</script>
 	
 	<!-- Script for meter showing deaths -->
 	<script>
@@ -914,7 +1016,7 @@ The greatest need right now is to help ensure all countries are prepared, especi
 			id: 'cvs',
 			min: 0,
 			max: 100,
-			value: 55,
+			value: 64,
 				options: {
 
 					marginLeft: 15,
@@ -948,8 +1050,9 @@ The greatest need right now is to help ensure all countries are prepared, especi
             }
 		}).draw();
 	</script>
+
 	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics  -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162760962-1"></script>
 		<script>
 				window.dataLayer = window.dataLayer || [];
@@ -957,127 +1060,7 @@ The greatest need right now is to help ensure all countries are prepared, especi
 				gtag('js', new Date());
 
 				gtag('config', 'UA-162760962-1');
-		</script>
-	
-	<script>
-		(function(){
-			// Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyCHn-YKUq4ADvka67aJCCs51dfaQR8hkXU",
-				authDomain: "covid-19-web-app.firebaseapp.com",
-				databaseURL: "https://covid-19-web-app.firebaseio.com",
-				projectId: "covid-19-web-app",
-				storageBucket: "covid-19-web-app.appspot.com",
-				messagingSenderId: "840406494852",
-				appId: "1:840406494852:web:8630fb4428debb82b21cd1",
-				measurementId: "G-ZPTYVJK3MN"
-			};
-			firebase.initializeApp(config);
-   
-    /* Data Event Listeners Start */
-		//Data Object Change Listener
-		const total_cases_object = document.getElementById('total_cases');
-		const total_deaths_object = document.getElementById('total_deaths');
-		const countries_cases_object = document.getElementById('countries_with_cases');
-		
-		const usa_object = document.getElementById('usa');
-		const italy_object = document.getElementById('italy');
-		const spain_object = document.getElementById('spain');
-		const germany_object = document.getElementById('germany');
-		const france_object = document.getElementById('france');
-		
-		//Data References
-		const total_cases = firebase.database().ref().child('/database/total_cases');
-		const total_deaths = firebase.database().ref().child('/database/total_deaths');
-		const countries_with_cases = firebase.database().ref().child('/database/countries_with_cases');
-		
-		const usa = firebase.database().ref().child('/database/country/usa');
-		const italy = firebase.database().ref().child('/database/country/italy');
-		const spain = firebase.database().ref().child('/database/country/spain');
-		const germany = firebase.database().ref().child('/database/country/germany');
-		const france = firebase.database().ref().child('/database/country/france');
-		
- 
-		<!-- Total Cases Fetch -->
-		total_cases.on('value', snap => {
-			console.log(snap.val()); 
-			total_cases_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Total Deaths Fetch -->
-		total_deaths.on('value', snap => {
-			console.log(snap.val()); 
-			total_deaths_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Total Countries With Affected Fetch -->
-		countries_with_cases.on('value', snap => {
-			console.log(snap.val()); 
-			countries_cases_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Here we fetch data for top5 country -->
-		usa.on('value', snap => {
-			console.log(snap.val()); 
-			usa_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		italy.on('value', snap => {
-			console.log(snap.val()); 
-			italy_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		spain.on('value', snap => {
-			console.log(snap.val()); 
-			spain_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		germany.on('value', snap => {
-			console.log(snap.val()); 
-			germany_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		france.on('value', snap => {
-			console.log(snap.val()); 
-			france_object.innerText = JSON.stringify(snap.val(), null, 3);
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		
-		/* Stop Fetching Database */
-}());
- </script>
+		</script> 
 </body>
 </head>
 </html>	

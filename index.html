@@ -1,8 +1,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Firebase Import -->
 <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 
+<!-- RGraph Import -->
 <script src="https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/RGraph/RGraph.common.core.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/RGraph/RGraph.common.dynamic.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/RGraph/RGraph.meter.js"></script>
@@ -230,184 +233,13 @@ a+a {
 			<h4>Copyright © 2020 asm.life</h4>
 		</center>
 	<div>
+
+	<!-- RGraph Import -->
+	<script src="https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/Script/RGraphScript.js"></script>
 	
-	<!-- Here All Script TAG will be added -->
-	<!-- Firebase Database Initialize -->
-	<script>
-		(function(){
-			// Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyCHn-YKUq4ADvka67aJCCs51dfaQR8hkXU",
-				authDomain: "covid-19-web-app.firebaseapp.com",
-				databaseURL: "https://covid-19-web-app.firebaseio.com",
-				projectId: "covid-19-web-app",
-				storageBucket: "covid-19-web-app.appspot.com",
-				messagingSenderId: "840406494852",
-				appId: "1:840406494852:web:8630fb4428debb82b21cd1",
-				measurementId: "G-ZPTYVJK3MN"
-			};
-			firebase.initializeApp(config);
-   
-		/* Data Event Listeners Start */
-		
-		//Data References Of Stat
-		const total_cases = firebase.database().ref().child('/database/total_cases');
-		const total_deaths = firebase.database().ref().child('/database/total_deaths');
-		const countries_with_cases = firebase.database().ref().child('/database/countries_with_cases');
-		const timeStamp = firebase.database().ref().child('/database/timeStamp');
-		
-		//Data References Of Top5 Country
-		const country1 = firebase.database().ref().child('/database/country/country1');
-		const country2 = firebase.database().ref().child('/database/country/country2');
-		const country3 = firebase.database().ref().child('/database/country/country3');
-		const country4 = firebase.database().ref().child('/database/country/country4');
-		const country5 = firebase.database().ref().child('/database/country/country5');
- 
-		<!-- Total Cases Fetch -->
-		total_cases.on('value', snap => {
-			console.log(snap.val());   
-			document.getElementById("total_cases").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Total Deaths Fetch -->
-		total_deaths.on('value', snap => {
-			console.log(snap.val());
-			document.getElementById("total_deaths").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Total Countries With Affected Fetch -->
-		countries_with_cases.on('value', snap => {
-			console.log(snap.val());
-			document.getElementById("countries_with_cases").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!--TimeStamp -->
-		timeStamp.on('value', snap => {
-			console.log(snap.val());
-			document.getElementById("timeStamp").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		<!-- Here we fetch data for top5 country -->
-		country1.on('value', snap => {
-			console.log(snap.val()); 
-			document.getElementById("country1").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		country2.on('value', snap => {
-			console.log(snap.val()); 
-			document.getElementById("country2").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		country3.on('value', snap => {
-			console.log(snap.val()); 
-			document.getElementById("country3").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		country4.on('value', snap => {
-			console.log(snap.val()); 
-			document.getElementById("country4").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		
-		country5.on('value', snap => {
-			console.log(snap.val()); 
-			document.getElementById("country5").innerHTML = snap.val();
-		}, function(error) {
-		
-		// The fetch failed.
-		console.error(error);
-		});
-		/* Stop Fetching Database */
-}());
-	</script>
-	
-	<!-- Script for meter showing deaths -->
-	<script>
-		defaultColors = [
-			[0,10,'#ff0'],
-			[10,20,'#ff0'],
-			[20,30,'#fd0'],
-			[30,40,'#fc0'],
-			[40,50,'#fa0'],
-			[50,60,'#f80'],
-			[60,70,'#f60'],
-			[70,80,'#f50'],
-			[80,90,'#f30'],
-			[90,100,'#f20'],
-		];
-    
-		// Create the Meter chart specifying the min/max/value
-		meter = new RGraph.Meter({
-			id: 'cvs',
-			min: 0,
-			max: 100,
-			value: 64,
-				options: {
+	<!-- Firebase Database Script Import -->
+	<script src="https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/Script/firebaseScript.js"></script>
 
-					marginLeft: 15,
-					marginRight: 15,
-					marginTop: 15,
-					marginBottom: 15,
-
-				// Hide the centerpin by setting its colors to transparent
-				centerpinStroke: 'rgba(0,0,0,0)',
-				centerpinFill: 'rgba(0,0,0,0)',
-
-				// These are the colors for the segments on the main chart
-				colorsRanges: defaultColors,
-
-				// Turn off labels
-				labelsCount: 0,
-            
-				// By setting the start and end angles of the Meter you can change
-				// the extent of the Meter chart from the default semi-circle
-				anglesStart: RGraph.PI + 0.5,
-				anglesEnd: RGraph.TWOPI - 0.5,
-
-				linewidthSegments: 0,
-				textSize: 16,
-				colorsStroke: 'white',
-				segmentsRadiusStart: 150,
-				needleRadius: 100,
-				border: 0,
-				tickmarksSmallCount: 0,
-				tickmarksLargeCount: 0,
-            }
-		}).draw();
-	</script>
-
-	
 	<!-- Global site tag (gtag.js) - Google Analytics  -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162760962-1"></script>
 		<script>

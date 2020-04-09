@@ -1,0 +1,106 @@
+body {
+	 margin: 0; /* set margin: 0 this will help to remove side spaces from page */
+}
+
+/* Header Style */
+
+.header {
+	position: absolute;
+	top: 0;
+    left:0;
+    background-color: black; 
+    width: 100%;
+	text-align: center;
+	padding-bottom:30px
+}
+.header h1 {
+	color: white;
+}
+.header a:link, a:visited {
+	background-color: #f44336;
+	color: white;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+.header a:hover, a:active {
+	background-color: red;
+}
+
+/* ./End Header Style */
+
+.stat {
+	padding-top:190px;
+	padding-bottom:20px;
+	font-family: monospace;
+}
+.stat h1 {
+	color: indigo;
+}	
+.stat h3 {
+	font-size:20px;
+	color: darkred;
+}
+
+.country {
+	text-align: center;
+}
+.country h1 {
+	color: 	crimson;
+	font-family: Impact, fantasy;
+}	
+.country h3 {
+	color: indianred;
+}	
+
+.deathMeter {
+	padding-top:50px;
+	padding-bottom:50px;
+	float: center; 
+	text-align: center
+}
+.deathMeter h1 {
+	font-size:40px;
+	color: maroon;
+}
+.deathMeter h3 {
+	color: brown;
+}	
+
+.precautions {
+	background-color: firebrick;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+.precautions h1 {
+	font-family: Lucidatypewriter, monospace;
+}
+.precautions h4 {
+	font-family: Helvetica Narrow, sans-serif;
+}
+
+.footer {
+	background-color: black;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+.footer h3 {
+	color: white;
+}
+.footer a:link, a:visited {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
+.footer a:hover, a:active {
+  background-color: deeppink;
+}
+a+a {
+  margin-left: 10px;
+  margin-top: 10px;
+}	

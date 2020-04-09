@@ -2,10 +2,14 @@ body {
 	 margin: 0; /* set margin: 0 this will help to remove side spaces from page */
 }
 
+/* used in precautions */
+
 @font-face {
   font-family: trebuc;
   src: url(https://cdn.jsdelivr.net/gh/TutorialsAndroid/covid.github.io/assets/font/trebuc.woff);
 }
+
+/* used in death meter */
 
 @font-face {
 	font-family: Capriola;
@@ -40,31 +44,49 @@ body {
 
 /* ./End Header Style */
 
+/* Stat Report Style */
+
 .stat {
+	background-color: darkred;
 	padding-top:190px;
 	padding-bottom:20px;
 	font-family: monospace;
 }
 .stat h1 {
-	color: indigo;
+	color: white;
 }	
 .stat h3 {
 	font-size:20px;
-	color: darkred;
+	color: white;
+}
+.stat h4 {
+	color: white;
 }
 
+/* ./End Of Stat Report Style */
+
+/* Country Style */
+
 .country {
+	padding-top:50px;
+	padding-bottom:50px;
+	background-color: darkslategray;
 	text-align: center;
 }
 .country h1 {
-	color: 	crimson;
+	color: 	white;
 	font-family: Impact, fantasy;
 }	
 .country h3 {
-	color: indianred;
-}	
+	color: white;
+}
+
+/* ./End Of Country Style */	
+
+/* Death Meter Style */
 
 .deathMeter {
+	background-color: darkcyan;
 	padding-top:50px;
 	padding-bottom:50px;
 	float: center; 
@@ -72,16 +94,20 @@ body {
 }
 .deathMeter h1 {
 	font-size:40px;
-	color: maroon;
+	color: white;
 }
 .deathMeter h3 {
 	font-family: Capriola;
 	font-weight: 100;
-	color: brown;
+	color: white;
 }	
 
+/* ./End Of Death Meter Style */
+
+/* Precautions Style */
+
 .precautions {
-	background-color: firebrick;
+	background-color: darkslateblue;
 	color: white;
 	padding-top: 20px;
 	padding-bottom: 30px;
@@ -96,6 +122,10 @@ body {
 	font-family: trebuc;
 	font-weight: 100;
 }
+
+/* ./End Of Precautions Style */
+
+/* Footer Style */
 
 .footer {
 	background-color: black;
@@ -119,4 +149,6 @@ body {
 a+a {
   margin-left: 10px;
   margin-top: 10px;
-}	
+}
+
+/* ./End Of Footer Style */	

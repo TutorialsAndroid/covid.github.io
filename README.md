@@ -13,6 +13,6 @@ Our Website Below ▼▼
 
 Website Contributor ▼▼
 
-[`Akshay Masram`](https://instagram.com/akshaysunilmasram)
+[`Akshay Masram`](https://www.instagram.com/codernash/)
 [`Sushant Gandalwar`](https://www.instagram.com/____sushantgandalwar____/)
 [`Jaydeep Patil`](https://www.instagram.com/jaydeeppatil_3580/)

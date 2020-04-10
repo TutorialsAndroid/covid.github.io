@@ -9,7 +9,7 @@ we are developing this webpage more so please stay focused with us.
 
 Our Website Below ▼▼
 
-[COVID-19](paroot.info)
+[COVID-19](www.paroot.info)
 
 Website Contributor ▼▼
 

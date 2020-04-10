@@ -9,7 +9,7 @@ we are developing this webpage more so please stay focused with us.
 
 Our Website Below ▼▼
 
-[COVID-19](https://tutorialsandroid.github.io/covid.github.io/)
+[COVID-19](paroot.info)
 
 Website Contributor ▼▼
 

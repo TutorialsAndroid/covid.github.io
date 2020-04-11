@@ -2870,8 +2870,7 @@ ul {
 /* line 130, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
 .banner_item .single_item {
   text-align: center;
-  margin-top: 100px;
-  margin-left: 25px; 
+  margin-top: 100px; 
   position: relative;
   z-index: 1;
 }
@@ -2890,17 +2889,17 @@ ul {
   }
 }
 
-/* this method add lines between items 
+/* this method add lines between items  */
 .banner_item .single_item:after {
   position: absolute;
   content: "";
-  right: -48%;
+  right: -95%;
   top: 0;
   width: 1px;
   height: 100%;
   background-color: #e4e6ea;
 }
-*/
+
 
 @media (max-width: 991px) {
   /* line 144, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
@@ -2962,7 +2961,7 @@ ul {
 
 /* line 202, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
 .single_about_padding {
-  padding: 140px 0 0;
+  padding: 150px 0 0;
   margin-bottom: 515px;
 }
 

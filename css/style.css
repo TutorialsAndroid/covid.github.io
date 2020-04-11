@@ -2865,6 +2865,14 @@ ul {
 .banner_item {
   display: flex;
   justify-content: space-between;
+ max-width: 400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.banner_item span {
+  width: 500px;
+  height: 500px;
 }
 
 /* line 130, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_about_us.scss */
